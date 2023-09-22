@@ -1,0 +1,1 @@
+# [Оригинальные уроки по Vue находятся на practical-web.ru](https://practical-web.ru/vuejs-lessons)
