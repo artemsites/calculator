@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. Установка Vue.js на существующий классический сайт, чтобы сделать frontend модуль к сайту</title>
+  <title>2. Как привязывать логику динамической вёрстки к Vue.js данным (Урок №2)   </title>
 
-  <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/css/calculator.scss">
+  <link rel="stylesheet" href="assets/css/index.scss">
 
   <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
   <script src="assets/js/libs/vue.3.3.4.global.prod.js"></script>
@@ -19,7 +20,7 @@
   <div class="container">
     <main class="main">
 
-      <h1>1. Установка Vue.js на существующий классический сайт, чтобы сделать frontend модуль к сайту</h1>
+      <h1>2. Как привязывать логику динамической вёрстки к Vue.js данным (Урок №2)</h1>
 
       <p>
         Это эмуляция классического сайта на php с серверной обработкой на языке PHP
@@ -27,7 +28,6 @@
 
 
 
-      <link rel="stylesheet" href="assets/css/calculator.css">
       
       <div id="calculator" class="calculator">
 
@@ -35,7 +35,7 @@
           <span class="switcher__label">Switcher</span>
           <div class="switcher__box">
             <span class="switcher__indicator"></span>
-            <input class="switcher__checkbox" type="checkbox" name="" id="">
+            <input class="switcher__checkbox" @change="switcherChange" type="checkbox" name="" id="">
           </div>
         </label>
 
@@ -48,7 +48,7 @@
   
   
   
-  <script src="assets/js/calculator.js"></script>
+  <script type="module" src="assets/js/calculator.js"></script>
 </body>
 
 </html>
