@@ -19,12 +19,6 @@ export default defineComponent({
     }
   },
 
-  methods: {
-  },
-
-  mounted() {
-  },
-
   template: `
     <label class="switcher" :class="[ (isSwitcherOn) ? '_on' : '_off' ]">
       <span class="switcher__label">Switcher</span>
