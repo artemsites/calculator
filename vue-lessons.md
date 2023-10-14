@@ -1,1 +1,0 @@
-https://github.com/artemsites/vue-lessons

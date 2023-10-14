@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. Как привязывать логику динамической вёрстки к Vue.js данным (Урок №2)   </title>
+  <title>3. Как создать компонент на Vue.js для переиспользования на классическом сайте на примере Switcher (Урок №3)   </title>
 
   <link rel="stylesheet" href="assets/css/calculator.scss">
   <link rel="stylesheet" href="assets/css/index.scss">
 
   <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
-  <script src="assets/js/libs/vue.3.3.4.global.prod.js"></script>
+  <!-- <script src="assets/js/libs/vue.3.3.4.global.prod.js"></script> -->
 </head>
 
 <body>
@@ -20,24 +20,13 @@
   <div class="container">
     <main class="main">
 
-      <h1>2. Как привязывать логику динамической вёрстки к Vue.js данным (Урок №2)</h1>
-
-      <p>
-        Это эмуляция классического сайта на php с серверной обработкой на языке PHP
-      </p>
-
+      <h1>3. Как создать компонент на Vue.js для переиспользования на классическом сайте на примере Switcher (Урок №3)</h1>
 
 
       
       <div id="calculator" class="calculator">
 
-        <label class="switcher">
-          <span class="switcher__label">Switcher</span>
-          <div class="switcher__box">
-            <span class="switcher__indicator"></span>
-            <input class="switcher__checkbox" @change="switcherChange" type="checkbox" name="" id="">
-          </div>
-        </label>
+        <switcher-box></switcher-box>
 
       </div>
 
