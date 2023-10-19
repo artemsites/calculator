@@ -22,6 +22,10 @@ export default defineComponent({
     two: {
       type: Boolean
     },
+    min: {
+      type: Number,
+      default: 0,
+    },
     max: {
       type: Number,
       default: 100,
@@ -68,13 +72,28 @@ export default defineComponent({
 
   computed: {
     onePercent() {
-      return this.max * 0.01
+      if (this.min>0) {
+        return (this.max - this.min) * 0.01
+      }
+      else {
+        return this.max * 0.01
+      }
     },
     offsetFirst() {
-      return this.rangeFirst / this.onePercent
+      if (this.min>0) {
+        return this.rangeFirst / this.onePercent - this.min / this.onePercent
+      }
+      else {
+        return this.rangeFirst / this.onePercent
+      }
     },
     offsetLast() {
-      return this.rangeLast / this.onePercent
+      if (this.min>0) {
+        return this.rangeLast / this.onePercent - this.min / this.onePercent
+      }
+      else {
+        return this.rangeLast / this.onePercent
+      }
     },
     styles() {
       return {
@@ -84,8 +103,6 @@ export default defineComponent({
   },
 
   mounted() {
-    // console.log('this.$slots')
-    // console.log(this.$slots)
   },
 
   template: `
@@ -96,7 +113,7 @@ export default defineComponent({
 
         <div class="slider-range" :class="{_two: two}">
 
-          <input v-model="range" class="slider-range__range" type="range" :max="max" />
+          <input v-model="range" class="slider-range__range" type="range" :max="max" :min="min" />
           <div class="slider-range__track"></div>
 
           

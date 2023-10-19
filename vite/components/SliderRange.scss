@@ -4,6 +4,7 @@ $colorGray: var(--c-gray, darkgray);
 $trackHeight: calc($size / 3.2);
 $ff: inherit;
 $fs: inherit;
+$translateXLeft: translateX(calc(var(--left) * -1));
 
 .slider-range {
   width: 100%;
@@ -44,7 +45,7 @@ $fs: inherit;
     background-color: $color;
     pointer-events: none;
     
-    transform: translateX(calc(var(--left) * -1));
+    transform: $translateXLeft;
     position: absolute;
     left: var(--left);
     z-index: 1;
@@ -89,7 +90,7 @@ $fs: inherit;
     cursor: pointer;
 
     position: absolute;
-    z-index: 1;
+    z-index: 5;
     left: 0;
     right: 0;
   }
@@ -107,9 +108,9 @@ $fs: inherit;
 
   &._two & {
     &__filler {
-      width: unset;
+      width: calc(var(--right) - var(--left));
       left: var(--left);
-      right: calc(100% - var(--right));
+      right: var(--right);
     }
   }
   
