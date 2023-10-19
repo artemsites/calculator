@@ -4,7 +4,8 @@ $colorGray: var(--c-gray, darkgray);
 $trackHeight: calc($size / 3.2);
 $ff: inherit;
 $fs: inherit;
-$translateXLeft: translateX(calc(var(--left) * -1));
+$translateXFirst: translateX(calc(var(--o-first) * -1));
+$translateXLast: translateX(calc(var(--o-last) * -1));
 
 .slider-range {
   width: 100%;
@@ -32,8 +33,20 @@ $translateXLeft: translateX(calc(var(--left) * -1));
     background-color: var(--c-white, #fff);
     box-shadow: 0 0 $trackHeight 0rem $colorGray;
     border-radius: $trackHeight;
+    overflow: hidden;
 
     position: absolute;
+  }
+
+  &__filler {
+    width: var(--o-first);
+    height: $trackHeight;
+
+    background-color: $color;
+    // border-radius: $size;
+
+    position: absolute;
+    left: 0;
   }
 
   &__knob {
@@ -45,10 +58,17 @@ $translateXLeft: translateX(calc(var(--left) * -1));
     background-color: $color;
     pointer-events: none;
     
-    transform: $translateXLeft;
     position: absolute;
-    left: var(--left);
     z-index: 1;
+    
+    &._first {
+      transform: $translateXFirst;
+      left: var(--o-first);
+    }
+    &._last {
+      transform: $translateXLast;
+      left: var(--o-last);
+    }
 
     &._active {
       &:after,
@@ -95,22 +115,12 @@ $translateXLeft: translateX(calc(var(--left) * -1));
     right: 0;
   }
 
-  &__filler {
-    width: var(--left);
-    height: $trackHeight;
-
-    background-color: $color;
-    border-radius: $size;
-
-    position: absolute;
-    left: 0;
-  }
 
   &._two & {
     &__filler {
-      width: calc(var(--right) - var(--left));
-      left: var(--left);
-      right: var(--right);
+      width: calc(var(--o-last) - var(--o-first));
+      left: var(--o-first);
+      right: var(--o-last);
     }
   }
   

@@ -90,16 +90,23 @@ export default defineComponent({
       }
     },
     offsetLast() {
-      if (this.min>0) {
-        return this.rangeLast / this.onePercent - this.min / this.onePercent
+      if (this.two) {
+        if (this.min>0) {
+          return this.rangeLast / this.onePercent - this.min / this.onePercent
+        }
+        else {
+          return this.rangeLast / this.onePercent
+        }
       }
       else {
-        return this.rangeLast / this.onePercent
+        return null
       }
     },
     styles() {
       return {
-        '--size': (this.size) ? this.size : null
+        '--size': (this.size) ? this.size : null,
+        '--o-first': this.offsetFirst+'%',
+        '--o-last': (this.offsetLast)?this.offsetLast+'%':null,
       }
     }
   },
@@ -116,15 +123,38 @@ export default defineComponent({
         <div class="slider-range" :class="{_two: two}">
 
           <input v-model="range" class="slider-range__range" type="range" :max="max" :min="min" />
-          <div class="slider-range__track"></div>
+          
+          <div class="slider-range__track">
+            <div class="slider-range__filler"></div>
+          </div>
+          
+          <div class="slider-range__knob _first" :class="{ _active: activeKnobe===1 }"></div>
+          
+          <div v-if="two" class="slider-range__knob _last" :class="{ _active: activeKnobe===2 }"></div>
+        </div>
+      </div>
+    `,
+    /* 
+    
 
+      <div class="slider-range__wrapper" :style="styles">
+        <div class="slider-range__title" v-if="this.$slots._">
+          <slot/>
+        </div>
+
+        <div class="slider-range" :class="{_two: two}">
+
+          <input v-model="range" class="slider-range__range" type="range" :max="max" :min="min" />
+          
+          <div class="slider-range__track">
+            <div class="slider-range__filler" :style="'--left: '+offsetFirst+'%; --right: '+offsetLast+'%;'"></div>
+          </div>
           
           <div class="slider-range__knob" :class="{ _active: activeKnobe===1 }" :style="'--left: '+offsetFirst+'%;'"></div>
-          
-          <div class="slider-range__filler" :style="'--left: '+offsetFirst+'%; --right: '+offsetLast+'%;'"></div>
           
           <div v-if="two" class="slider-range__knob" :class="{ _active: activeKnobe===2 }" :style="'--left: '+offsetLast+'%;'"></div>
         </div>
       </div>
-    `,
+
+    */
 });
