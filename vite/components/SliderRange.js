@@ -31,10 +31,12 @@ export default defineComponent({
       default: 100,
     },
     first: {
-      type: Number
+      type: Number,
+      default: 0,
     },
     last: {
-      type: Number
+      type: Number,
+      default: 100,
     },
     
   },
