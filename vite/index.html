@@ -4,13 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. Как создать компонент на Vue.js для переиспользования на классическом сайте на примере Switcher (Урок №3)   </title>
+  <title>3.1 Рефакторинг структуры файлов и компонента Switcher на Vue.js (Урок №3.1)</title>
 
-  <link rel="stylesheet" href="assets/css/calculator.scss">
-  <link rel="stylesheet" href="assets/css/index.scss">
-
-  <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
-  <!-- <script src="assets/js/libs/vue.3.3.4.global.prod.js"></script> -->
+  <link rel="stylesheet" href="css/index.scss">
 </head>
 
 <body>
@@ -20,13 +16,15 @@
   <div class="container">
     <main class="main">
 
-      <h1>3. Как создать компонент на Vue.js для переиспользования на классическом сайте на примере Switcher (Урок №3)</h1>
+      <h1>3.1 Рефакторинг структуры файлов и компонента Switcher на Vue.js (Урок №3.1)</h1>
 
 
       
       <div id="calculator" class="calculator">
 
-        <switcher-box></switcher-box>
+        <switcher-box size="2.5rem" class="calculator__item">
+          Switcher-box
+        </switcher-box>
 
       </div>
 
@@ -37,7 +35,7 @@
   
   
   
-  <script type="module" src="assets/js/calculator.js"></script>
+  <script type="module" src="calculator.js"></script>
 </body>
 
 </html>

@@ -1,13 +1,14 @@
+$size: var(--size, 1.8rem);
+$boxWidth: calc($size * 2.6);
+$padding: calc($size / 8);
+$boxColorActive: var(--c-accent, deepskyblue);
+$boxColor: var(--c-gray, darkgray);
+$transitionTime: 400ms;
+$ff: inherit;
+$fs: inherit;
+$boxHeight: calc($size + $padding * 2);
 
-.switcher {
-  $padding: 0.15rem;
-  $indicatorSize: 1.8rem;
-  $boxColorActive: hwb(200 15% 0%);
-  $boxColor: #d8d8d8;
-  $transitionTime: 300ms;
-  $ff: Arial, sans-serif;
-  $boxHeight: 2rem;
-
+.switcher-box {
   display: inline-flex;
   flex-direction: column;
 
@@ -16,11 +17,13 @@
     justify-content: center;
 
     font-family: $ff;
-    margin-bottom: 0.1rem;
+    font-size: $fs;
+
+    margin-bottom: calc($size / 3);
   }
 
   &__box {
-    width: 4.4rem;
+    width: $boxWidth;
     height: $boxHeight;
 
     display: inline-flex;
@@ -36,13 +39,13 @@
   }
 
   &__indicator {
-    width: $indicatorSize;
-    height: $indicatorSize;
+    width: $size;
+    height: $size;
 
-    background-color: white;
+    background-color: var(--c-white, #fff);
     border-radius: 50%;
 
-    transition: left $transitionTime; 
+    transition: $transitionTime; 
 
     position: absolute;
     left: $padding;
@@ -66,7 +69,7 @@
       animation-name: indicatorScaleBlur;
       animation-duration: $transitionTime;
 
-      left: calc(100% - $indicatorSize - $padding);
+      left: calc(100% - $size - $padding);
     }
 
     &__box {
@@ -78,8 +81,6 @@
     &__indicator {
       animation-name: indicatorScaleBlur;
       animation-duration: $transitionTime;
-
-      left: $padding;
     }
   }
 }
